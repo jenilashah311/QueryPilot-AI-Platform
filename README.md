@@ -1,4 +1,4 @@
-# Project 4 — Full-Stack React AI SaaS (Multi-Tenant Analytics + Text-to-SQL)
+# QueryPilot-AI-Platform
 
 **Problem:** B2B teams need internal analytics where non-technical users ask questions in plain English instead of writing SQL.
 
