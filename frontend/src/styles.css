@@ -1,0 +1,330 @@
+:root {
+  font-family: "DM Sans", system-ui, sans-serif;
+  background: #0c0f14;
+  color: #e8ecf2;
+  line-height: 1.5;
+  --bg: #0c0f14;
+  --panel: #141a22;
+  --panel-2: #101620;
+  --border: #243044;
+  --muted: #9fb0c8;
+  --text: #e8ecf2;
+  --accent: #8b5cf6;
+  --accent-2: #3b82f6;
+  --good: #86efac;
+  --bad: #f87171;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+a {
+  color: #7ecbff;
+}
+.layout {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
+}
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.title h1 {
+  font-size: 1.25rem;
+  margin: 0;
+  letter-spacing: 0.2px;
+}
+.subtitle {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(16, 22, 32, 0.55);
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+@media (min-width: 760px) {
+  .grid {
+    grid-template-columns: 1.45fr 0.55fr;
+    gap: 1rem;
+    align-items: start;
+  }
+}
+@media (min-width: 980px) {
+  .grid {
+    grid-template-columns: 1.55fr 0.45fr;
+    gap: 1rem;
+    align-items: start;
+  }
+}
+
+.questionTextarea {
+  width: 100%;
+  height: 72px;
+  min-height: 72px;
+  max-height: 72px;
+  overflow: auto;
+  resize: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.questionTextarea:focus {
+  /* Keep height stable while typing; only show focus glow. */
+  height: 72px;
+  min-height: 72px;
+  max-height: 72px;
+  outline: none;
+  border-color: rgba(139, 92, 246, 0.7);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.18);
+}
+
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+@media (min-width: 980px) {
+  .kpis {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.kpi {
+  background: linear-gradient(180deg, rgba(139, 92, 246, 0.12), rgba(59, 130, 246, 0.05));
+  border: 1px solid rgba(139, 92, 246, 0.22);
+  border-radius: 12px;
+  padding: 0.85rem 0.95rem;
+}
+.kpiLabel {
+  color: var(--muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  margin: 0 0 0.25rem;
+}
+.kpiValue {
+  font-size: 1.05rem;
+  font-weight: 750;
+  margin: 0;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.segmented {
+  display: inline-flex;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(15, 19, 26, 0.7);
+}
+.segmented button {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  padding: 0.45rem 0.75rem;
+  cursor: pointer;
+  font-weight: 650;
+  font-size: 0.85rem;
+}
+.segmented button.active {
+  color: var(--text);
+  background: linear-gradient(120deg, rgba(59, 130, 246, 0.35), rgba(139, 92, 246, 0.35));
+}
+
+.segmented button + button {
+  border-left: 1px solid rgba(36, 48, 68, 0.9);
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 10px;
+  padding: 0.55rem 1rem;
+  cursor: pointer;
+  font-weight: 650;
+}
+.btn:hover {
+  border-color: rgba(139, 92, 246, 0.45);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.tableWrap {
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: rgba(16, 22, 32, 0.35);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 520px;
+}
+th,
+td {
+  padding: 0.7rem 0.8rem;
+  border-bottom: 1px solid rgba(36, 48, 68, 0.7);
+  font-size: 0.9rem;
+}
+th {
+  color: var(--muted);
+  font-weight: 750;
+  text-align: left;
+  position: sticky;
+  top: 0;
+  background: rgba(20, 26, 34, 0.95);
+  backdrop-filter: blur(6px);
+}
+tr:hover td {
+  background: rgba(139, 92, 246, 0.06);
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+    monospace;
+  font-size: 0.9em;
+}
+button.primary {
+  background: linear-gradient(120deg, #3b82f6, #8b5cf6);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+input,
+textarea {
+  width: 100%;
+  padding: 0.55rem 0.65rem;
+  border-radius: 8px;
+  border: 1px solid #2c3a50;
+  background: #0f131a;
+  color: inherit;
+}
+label {
+  display: block;
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+  color: #9fb0c8;
+}
+.error {
+  color: #f87171;
+  font-size: 0.9rem;
+}
+
+/* Dashboard (Project 4) stable layout */
+.dashGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+@media (min-width: 760px) {
+  .dashGrid {
+    grid-template-columns: 1.45fr 0.55fr;
+  }
+}
+@media (min-width: 980px) {
+  .dashGrid {
+    grid-template-columns: 1.55fr 0.45fr;
+  }
+}
+
+.dashLeft {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.dashRight {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 0;
+}
+.dashResults {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.dashCardNoMb {
+  margin-bottom: 0;
+}
+.dashCardTight {
+  padding: 1rem;
+}
+
+.dashChartViz {
+  height: 200px;
+  margin-top: 0.75rem;
+}
+
+.dashTableWrap {
+  max-height: 220px;
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: rgba(16, 22, 32, 0.35);
+}
+
+.dashEmptyChart {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  color: var(--muted);
+  text-align: center;
+  font-size: 0.92rem;
+}
