@@ -62,6 +62,18 @@ cd frontend && npm install && npx playwright install
 BASE_URL=http://localhost:5175 npm run test:e2e
 ```
 
+## Screenshots (UI UI images)
+
+Add your UI screenshots in `frontend/public/screenshots` or any assets folder.
+
+```markdown
+![Login screen](frontend/public/screenshots/login.png)
+![Dashboard - chart result](frontend/public/screenshots/dashboard-chart.png)
+![Dashboard - query result](frontend/public/screenshots/dashboard-query.png)
+```
+
+You can include the exact images you shared in this path, then the README auto-loads them on GitHub.
+
 ## GCP / AWS
 
 Build and push `backend` and `frontend` images; run API on Cloud Run / ECS; managed Postgres + Redis; set secrets for `JWT_SECRET`, `OPENAI_API_KEY`, Stripe keys.
